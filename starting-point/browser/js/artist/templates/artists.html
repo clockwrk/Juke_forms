@@ -1,6 +1,13 @@
-<div>
+<div class="well">
   <h3>Artists</h3>
+  <form class="form-horizontal" name="artistForm">
+    <input type="text" name="ArtistNameName" ng-model="artistNames">Type name to filter artists</input>
+    <div>searching for: {{artistNames}}</div>
+    <div ng-repeat="artist in artists | filter: {name: artistNames}">{{artist.name}}</div>
+  </form>
+
     <div class="list-group">
+
       <div class="list-group-item" ng-repeat="artist in artists">
       <a ui-sref="artist({artistId: artist.id})">{{ artist.name }}</a>
     </div>
